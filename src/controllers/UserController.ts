@@ -3,6 +3,7 @@ import { CreateUserService } from "../service/CreateUserService";
 import { UsersRepository } from "../repositories/UsersRepository";
 import { User } from "../entities/User";
 import { UpdateUserService } from "../service/UpdateUserService";
+import { DeleteUserService } from "../service/DeleteUserService";
 
 
 class UserController {
@@ -69,6 +70,19 @@ class UserController {
     return response.status(201).json(user);
 
 
+  }
+
+  public async Delete(request: Request, response: Response): Promise<Response>{
+    const { id } = request.params;
+    const usersRepository = new UsersRepository();
+    const deleteUser = new DeleteUserService(usersRepository);
+
+
+    const users = await deleteUser.execute({
+      id,
+    });
+
+    return response.send();
   }
 
 
