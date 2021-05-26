@@ -40,7 +40,8 @@ export class CreateUsers1622041835360 implements MigrationInterface {
              },
              {
                name: "cpf",
-               type: "varchar"
+               type: "varchar",
+               isUnique: true
              },
              {
                name: "birth_date",
