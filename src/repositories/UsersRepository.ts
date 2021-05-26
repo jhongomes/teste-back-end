@@ -13,6 +13,7 @@ class UsersRepository implements IUsersRepository {
   }
 
 
+
   public async create({
       name,
       lastname,
@@ -58,6 +59,9 @@ class UsersRepository implements IUsersRepository {
   public async remove(users: User): Promise<User> {
        return this.ormRepository.remove(users);
 
+  }
+  public async findById(id: string): Promise<User | undefined> {
+      return this.ormRepository.findOne(id);
   }
 
 

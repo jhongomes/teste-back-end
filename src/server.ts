@@ -1,4 +1,5 @@
-
+import 'express-async-errors';
+import 'reflect-metadata';
 import AppError from "./errors/AppError";
 import express, { Request, Response, NextFunction } from "express";
 import {routes} from "./routes";

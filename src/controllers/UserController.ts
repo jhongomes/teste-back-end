@@ -2,6 +2,7 @@ import { Request, Response} from "express";
 import { CreateUserService } from "../service/CreateUserService";
 import { UsersRepository } from "../repositories/UsersRepository";
 import { User } from "../entities/User";
+import { UpdateUserService } from "../service/UpdateUserService";
 
 
 class UserController {
@@ -34,6 +35,40 @@ class UserController {
     const users = await usersRepository.list();
 
     return response.status(200).json(users)
+  }
+
+  public async Update(request: Request, response: Response): Promise<Response>{
+    const { id } = request.params;
+    const { name,
+            lastname,
+            nickname,
+            email,
+            cpf,
+            birth_date,
+            phone,
+            address,
+            bio} = request.body;
+
+
+    const usersRepository = new UsersRepository();
+    const updateUser = new UpdateUserService(usersRepository);
+
+    const user = await updateUser.execute({
+
+            name,
+            lastname,
+            nickname,
+            email,
+            cpf,
+            birth_date,
+            phone,
+            address,
+            bio,
+    })
+
+    return response.status(201).json(user);
+
+
   }
 
 
