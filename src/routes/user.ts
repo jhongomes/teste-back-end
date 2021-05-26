@@ -7,6 +7,6 @@ const usersController = new UserController();
 
 
 usersRouter.post("/", usersController.create);
-
+usersRouter.get("/", usersController.listar)
 
 export { usersRouter}

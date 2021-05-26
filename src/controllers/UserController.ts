@@ -25,8 +25,18 @@ class UserController {
     });
     delete user.password;
 
-    return response.json(user);
+    return response.status(201).json(user);
   }
+
+  public async listar(request: Request, response: Response): Promise<Response>{
+
+    const usersRepository = new UsersRepository();
+    const users = await usersRepository.list();
+
+    return response.status(200).json(users)
+  }
+
+
 
 }
 export { UserController }
