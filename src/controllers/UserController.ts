@@ -85,6 +85,15 @@ class UserController {
     return response.send();
   }
 
+  public async findByEmail(request: Request, response:Response): Promise<Response>{
+    const { email } = request.params;
+
+    const usersRepository = new UsersRepository();
+    const users = await usersRepository.findByEmail(email);
+
+    return response.json(users);
+  }
+
 
 
 }
