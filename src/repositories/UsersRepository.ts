@@ -66,25 +66,25 @@ class UsersRepository implements IUsersRepository {
 
 
   public async findByEmail(email: string): Promise<User | undefined> {
-       const user = await this.ormRepository.findOne({
+       return this.ormRepository.findOne({
        where: { email }
     })
-      return user;
+
   }
 
   public async findByNickname(nickname: string): Promise<User | undefined> {
-       return this.ormRepository.findOne({
-       where: { nickname }
-    })
+      return this.ormRepository.findOne({ where: {nickname },
+      })
+
+
+
   }
 
 
-  public async findByCPF(cpf: string): Promise<User> {
-      const user = await this.ormRepository.findOne({
-       where: { cpf }
-    })
+  public async findByCPF(cpf: string): Promise<User | undefined> {
+      return this.ormRepository.findOne({ where: { cpf },
+      })
 
-      return user;
 
   }
 

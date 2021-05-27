@@ -38,6 +38,19 @@ class UserController {
     return response.status(200).json(users)
   }
 
+
+  public async findByEmail(request: Request, response:Response): Promise<Response>{
+    const { email } = request.params;
+
+    const usersRepository = new UsersRepository();
+    const users = await usersRepository.findByEmail(email);
+
+    return response.json(users);
+  }
+
+
+
+
   public async Update(request: Request, response: Response): Promise<Response>{
     const { id } = request.params;
     const { name,
@@ -85,14 +98,7 @@ class UserController {
     return response.send();
   }
 
-  public async findByEmail(request: Request, response:Response): Promise<Response>{
-    const { email } = request.params;
 
-    const usersRepository = new UsersRepository();
-    const users = await usersRepository.findByEmail(email);
-
-    return response.json(users);
-  }
 
 
 
