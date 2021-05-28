@@ -34,7 +34,7 @@ class CreateUserService{
      birth_date,
      phone,
      address,
-      bio
+     bio
 
   }: Request): Promise<User>{
     const passwordHash = await hash(password, 8);

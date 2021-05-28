@@ -1,0 +1,265 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Backend Manager",
+    "description": "Backend Store API."
+  },
+  "host": "localhost:3333",
+  "basePath": "/",
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/users/{email}": {
+      "get": {
+        "tags": ["Users"],
+        "description": "List user by Email",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/users/": {
+      "get": {
+        "tags": ["Users"],
+        "sumary": "List all users",
+        "description": "list all users",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "tags": ["Users"],
+        "sumary": "Create a users",
+        "description": "Create a new users",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "name",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "lastname",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "nickname",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "birth_date",
+            "in": "body",
+            "type":"string"
+          },
+          {
+            "name": "phone",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "address",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "bio",
+            "in": "body",
+            "type": "string"
+          }
+        ],
+
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/users/{id}/": {
+      "put": {
+        "tags": ["Users"],
+        "description": "Update user",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "name",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "lastname",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "nickname",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "birth_date",
+            "in": "body",
+            "type":"string"
+          },
+          {
+            "name": "phone",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "address",
+            "in": "body",
+            "type": "string"
+          },
+          {
+            "name": "bio",
+            "in": "body",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+        "delete": {
+          "tags": ["Users"],
+          "sumary": "Delete a user",
+          "description": "Delet user",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "404": {
+              "description": "Not Found"
+            }
+          }
+        }
+    }
+  },
+  "definitions": {
+    "users": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "example": "Jonathan"
+        },
+        "lastname": {
+          "type": "string",
+          "example": "Silva Souza"
+        },
+        "nickname": {
+          "type": "string",
+          "example": "jhon"
+        },
+        "email": {
+          "type": "string",
+          "example": "jhon@gmail.com"
+        },
+        "password": {
+          "type": "string",
+          "example": "qzc1d9908@"
+        },
+        "cpf": {
+          "type": "string",
+          "example": "038.699.952-03"
+        },
+        "birth_date": {
+          "type": "string",
+          "example": "01-10-1998"
+        },
+        "phone": {
+          "type": "string",
+          "example": "(92) 99999-9999"
+        },
+        "address": {
+          "type": "string",
+          "example": "Rua inglaterra, n33333, Manaus Amazonas"
+        },
+        "bio": {
+          "type": "string",
+          "example": "Analista e desenvolvedor Backend Jr"
+        }
+      }
+    }
+  }
+}
