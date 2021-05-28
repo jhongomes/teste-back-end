@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
-
+import  uuid from "uuid";
 @Entity("users")
 class User{
 

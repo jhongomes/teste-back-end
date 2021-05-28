@@ -86,9 +86,9 @@ class UsersRepository implements IUsersRepository {
 
 
   public async findByCPF(cpf: string): Promise<User | undefined> {
-      const user = await this.ormRepository.findOne(cpf);
+    return this.ormRepository.findOne(cpf);
 
-      return user;
+
 
 
   }
