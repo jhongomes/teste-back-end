@@ -70,7 +70,7 @@ Para clonar e executar esse projeto, você precisa do [Git](https://git-scm.com/
 ```
 
 ### 🔗 Banco de dados
-
+<br>
  Para estabelecer uma conexão com o banco, você precisa de [Docker v19.03](http://docs.docker.oeynet.com/toolbox/toolbox_install_windows/) ou superior instalado no seu computador. Digite na sua linha de comando:
 
  ``` bash
@@ -80,12 +80,31 @@ Para clonar e executar esse projeto, você precisa do [Git](https://git-scm.com/
     # Executar o banco
     $ docker start BACKEND
 
-    # Verificar a url host de conexão
-    $ docker-machine ls
-
-    # Configurar a url listada no comando acima dentro do 'ormconfig.json' do projeto
-    ex url: 192.168.99.108
 
 
 
 ```
+### 📁 Migrations
+<br>
+
+Para migrar a tabela existente no projeto para o docker, execute o comando no terminal do seu editor:
+
+```
+$ yarn typeorm migration:run
+
+```
+---
+### API
+<br>
+
+ Para testar a API desenvolvida você pode usar [Insomnia v7.1](https://insomnia.rest/) ou [Postman](https://www.postman.com/) superior instalado no seu computador,
+
+ - $ {
+  "baseURL": "http://localhost:3333" }
+
+---
+### Documentação Swagger
+<br>
+ - http://localhost:3333/api-docs
+
+
