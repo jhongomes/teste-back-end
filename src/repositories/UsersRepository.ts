@@ -2,6 +2,7 @@ import IUsersRepository from "./IUsersRepository";
 import ICreateUsersDTO from "../Dtos/CreateUserDTO";
 import { User } from "../entities/User";
 import {  getRepository, Repository } from "typeorm";
+import { isAwaitExpression } from "typescript";
 
 
 class UsersRepository implements IUsersRepository {
@@ -66,15 +67,18 @@ class UsersRepository implements IUsersRepository {
 
 
   public async findByEmail(email: string): Promise<User | undefined> {
-       return this.ormRepository.findOne({
+       const user = await this.ormRepository.findOne({
        where: { email }
     })
+    return user;
 
   }
 
   public async findByNickname(nickname: string): Promise<User | undefined> {
-      return this.ormRepository.findOne({ where: {nickname },
+      const user = await this.ormRepository.findOne({ where: {nickname },
       })
+
+      return user;
 
 
 
@@ -82,8 +86,9 @@ class UsersRepository implements IUsersRepository {
 
 
   public async findByCPF(cpf: string): Promise<User | undefined> {
-      return this.ormRepository.findOne({ where: { cpf },
-      })
+      const user = await this.ormRepository.findOne(cpf);
+
+      return user;
 
 
   }

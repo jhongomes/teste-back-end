@@ -3,7 +3,10 @@
   "info": {
     "version": "1.0.0",
     "title": "Backend Manager",
-    "description": "Backend Store API."
+    "description": "Backend API.",
+    "contact": {
+      "email": "jhonatangomes859@gmail.com"
+  }
   },
   "host": "localhost:3333",
   "basePath": "/",
